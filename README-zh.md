@@ -662,66 +662,136 @@ cp -R /path/to/OpenMAIC/skills/openmaic ~/.openclaw/skills/openmaic
 
 ### 项目结构
 
+本 fork 将 **上游 OpenMAIC 业务代码保持只读**，二开能力放在 `*/extends/` 下，通过 `extends/fork-aliases.json`、`tsconfig.json` 路径别名、Next.js rewrite 与 `app/api/extends/**` 桥接接入运行时。
+
 ```
 OpenMAIC/
-├── app/                        # Next.js App Router
-│   ├── api/                    #   服务端 API 路由（约 18 个端点）
-│   │   ├── generate/           #     场景生成流水线（大纲、内容、图片、TTS…）
-│   │   ├── generate-classroom/ #     异步课堂生成提交与轮询
-│   │   ├── chat/               #     多智能体讨论（SSE 流式传输）
-│   │   ├── pbl/                #     项目制学习端点
-│   │   └── ...                 #     quiz-grade, parse-pdf, web-search, transcription 等
-│   ├── classroom/[id]/         #   课堂回放页面
-│   └── page.tsx                #   首页（生成输入）
+├── extends/                        # 二开 bootstrap 与集成
+│   ├── bootstrap.ts                #   启动时 registerExtensions()
+│   ├── fork-aliases.json           #   @/lib/… → lib/extends/… 模块映射
+│   ├── merge-i18n.ts               #   i18n overlay 合并
+│   ├── README.md                   #   二开索引
+│   ├── DEVELOPMENT_GUIDE.md        #   extends/ 贡献规范
+│   ├── INTEGRATION.md              #   别名、rewrite、API 桥接
+│   └── SYNC_MANIFEST.md            #   上游同步清单
 │
-├── lib/                        # 核心业务逻辑
-│   ├── generation/             #   两阶段课堂生成流水线
-│   ├── orchestration/          #   LangGraph 多智能体编排（导演图）
-│   ├── playback/               #   回放状态机（idle → playing → live）
-│   ├── action/                 #   动作执行引擎（语音、白板、特效）
-│   ├── ai/                     #   LLM 服务商抽象层
-│   ├── api/                    #   Stage API 门面（幻灯片/画布/场景操作）
-│   ├── store/                  #   Zustand 状态管理
-│   ├── types/                  #   集中式 TypeScript 类型定义
-│   ├── audio/                  #   TTS & ASR 服务商
-│   ├── media/                  #   图片 & 视频生成服务商
-│   ├── export/                 #   PPTX & HTML 导出
-│   ├── hooks/                  #   React 自定义 Hooks（55+）
-│   ├── i18n/                   #   国际化（zh-CN, en-US）
-│   └── ...                     #   prosemirror, storage, pdf, web-search, utils
+├── app/                            # Next.js App Router
+│   ├── api/                        #   上游 HTTP 路由
+│   │   ├── generate/               #     大纲、场景、TTS、图片、视频 …
+│   │   ├── generate-classroom/     #     异步课堂生成任务
+│   │   ├── chat/                   #     多智能体 SSE 讨论
+│   │   ├── classroom/              #     课堂 CRUD（GET）
+│   │   └── extends/                #     桥接 → app/extends/api/*（/api/extends/…）
+│   ├── classroom/[id]/             #   课堂播放页
+│   ├── classroom/[id]/edit/        #   → 别名：课程编辑器（extends）
+│   ├── generation-preview/         #   生成预览
+│   ├── eval/                       #   内部评测页
+│   ├── page.tsx                    #   上游首页（生成入口）
+│   └── extends/                    #   二开页面与 Route Handler（实现源）
+│       ├── layout.tsx              #     加载 bootstrap.ts
+│       ├── home/                   #     /home（rewrite）
+│       ├── teacher/                #     /teacher/* 教师课程平台（rewrite）
+│       ├── knowledge-base/         #     /knowledge-base（rewrite）
+│       ├── slide-templates/        #     /slide-templates（rewrite）
+│       ├── classroom/[id]/edit/    #     扩展课程编辑器
+│       ├── export-video/render/    #     讲解视频无头截图页
+│       ├── dev/ai-traces/          #     /dev/ai-traces（rewrite，开发用）
+│       └── api/                    #     teacher、knowledge-base、export-video …
 │
-├── components/                 # React UI 组件
-│   ├── slide-renderer/         #   基于 Canvas 的幻灯片编辑器和渲染器
-│   │   ├── Editor/Canvas/      #     交互式编辑画布
-│   │   └── components/element/ #     元素渲染器（文本、图片、形状、表格、图表…）
-│   ├── scene-renderers/        #   测验、交互、PBL 场景渲染器
-│   ├── generation/             #   课堂生成工具栏和进度
-│   ├── chat/                   #   聊天区域和会话管理
-│   ├── settings/               #   设置面板（服务商、TTS、ASR、媒体…）
-│   ├── whiteboard/             #   基于 SVG 的白板绘图
-│   ├── agent/                  #   智能体头像、配置、信息栏
-│   ├── ui/                     #   基础 UI 组件（shadcn/ui + Radix）
-│   └── ...                     #   audio, roundtable, stage, ai-elements
+├── lib/                            # 上游共享逻辑
+│   ├── generation/                 #   两阶段生成流水线
+│   ├── orchestration/              #   LangGraph 导演图
+│   ├── playback/                   #   回放状态机
+│   ├── action/                     #   语音、白板、特效 …
+│   ├── ai/ audio/ media/           #   Provider 抽象
+│   ├── prompts/                    #   上游 Agent 模板
+│   ├── server/                     #   任务、存储、SSRF、Provider 配置
+│   ├── store/ hooks/ i18n/ export/
+│   └── extends/                    #   二开逻辑 overlay（路径别名注入）
+│       ├── generation/             #     HTML 动效页、章节工作流、单页重生成
+│       ├── teacher/                #     课程项目、章节、视频导出客户端
+│       ├── slide-templates/        #     主题、应用/恢复、商务配色
+│       ├── knowledge-base/         #     树形存储、章节挂载、AI 规划提案
+│       ├── server/video-export/    #     时间线、FFmpeg、Playwright 渲染
+│       ├── prompts/                #     二开模板与生成模式 snippet
+│       ├── i18n/                   #     文案快照 + 运行时 overlay
+│       ├── observability/          #     AI 调用追踪（开发）
+│       ├── orchestration/          #     导演图扩展
+│       └── playback/               #     按需 TTS 等
 │
-├── packages/                   # 工作区子包
-│   ├── pptxgenjs/              #   定制化 PowerPoint 生成
-│   └── mathml2omml/            #   MathML → Office Math 转换
+├── components/                     # 上游 React UI
+│   ├── slide-renderer/             #   画布幻灯片编辑与元素渲染
+│   ├── scene-renderers/            #   测验、互动、PBL、完成页
+│   ├── stage/ chat/ roundtable/    #   课堂壳层与智能体
+│   ├── generation/ settings/ …
+│   └── extends/                    #   二开 UI overlay
+│       ├── teacher/                #     设计工作台、章节 Studio
+│       ├── course-editor/          #     场景列表、讲解视频、模板工具栏
+│       ├── knowledge-base/         #     资料浏览、AI 助手
+│       ├── slide-templates/        #     模板选择与预览
+│       └── canvas/ chat/ stage/ …  #     课堂/编辑器补丁组件
 │
-├── skills/                     # OpenClaw / ClawHub skills
-│   └── openmaic/               #   OpenMAIC 引导式 SOP skill
-│       ├── SKILL.md            #   轻量路由层 + 确认规则
-│       └── references/         #   按需加载的 SOP 分段
-│
-├── configs/                    # 共享常量（形状、字体、快捷键、主题…）
-└── public/                     # 静态资源（logo、头像）
+├── configs/                        # 主题、字体、动画默认值
+│   └── extends/                    #   可选配置覆盖
+├── tests/ + tests/extends/         # Vitest（上游 + 二开）
+├── e2e/ + e2e/extends/             # Playwright
+├── packages/                       # pptxgenjs、mathml2omml（workspace）
+├── scripts/                        # i18n 校验、fork 同步、API 桥接 …
+├── docs/superpowers/                 # 设计规格与实现计划
+├── skills/openmaic/                  # OpenClaw / ClawHub skill
+├── eval/                             # 离线 eval 脚本
+├── middleware.ts                     # Edge 中间件（访问控制 / 路由）
+├── public/ + public/extends/         # 静态资源
+├── next.config.ts                    # Fork resolveAlias + rewrites
+└── tsconfig.json                     # @/* 与 @extends/* 路径别名
 ```
+
+**页面 rewrite：** `/home`、`/teacher/*`、`/knowledge-base`、`/slide-templates`、`/dev/ai-traces/*` → `app/extends/…`
+
+**二开 API 前缀：** `/api/extends/{module}/…`（实现位于 `app/extends/api/`）
 
 ### 核心架构
 
-- **生成流水线** (`lib/generation/`) — 两阶段：大纲生成 → 场景内容生成
-- **多智能体编排** (`lib/orchestration/`) — 基于 LangGraph 的状态机，管理智能体轮次和讨论
-- **回放引擎** (`lib/playback/`) — 驱动课堂回放和实时互动的状态机
-- **动作引擎** (`lib/action/`) — 执行 28+ 种动作类型（语音、白板绘图/文字/形状/图表、聚光灯、激光笔…）
+**上游核心**
+
+| 模块 | 路径 | 职责 |
+| --- | --- | --- |
+| 生成流水线 | `lib/generation/` | 大纲 → 场景内容（幻灯片、测验、互动、PBL） |
+| 多智能体编排 | `lib/orchestration/` | LangGraph 导演图、讨论与问答 |
+| 回放引擎 | `lib/playback/` | 课堂回放状态机（idle → playing → live） |
+| 动作引擎 | `lib/action/` | 28+ 种动作（语音、白板、聚光灯、激光笔 …） |
+
+**二开 overlay（`*/extends/`）**
+
+| 模块 | 路径 | 职责 |
+| --- | --- | --- |
+| 教师课程平台 | `app/extends/teacher/`, `lib/extends/teacher/` | 课程项目、设计工作台、章节 Studio、发布 |
+| 幻灯片模板 | `lib/extends/slide-templates/` | 内置/自定义主题，应用到场景，预览与恢复 |
+| HTML 动效页 | `lib/extends/generation/html-slide-*` | HTML 动效场景（相对纯画布模式） |
+| 知识库 | `lib/extends/knowledge-base/` | 资料树、章节挂载、AI 规划提案 |
+| 讲解视频导出 | `lib/extends/server/video-export/` | TTS + Playwright 截图 + FFmpeg → 1080p MP4 |
+| 二开 i18n | `lib/extends/i18n/` | Overlay 合并到上游 locale |
+| AI 可观测 | `lib/extends/observability/` | LLM / TTS / 媒体调用追踪（开发） |
+
+**集成关系**
+
+```mermaid
+flowchart LR
+  subgraph upstream [上游只读]
+    A[app/ components/ lib/]
+  end
+  subgraph fork [二开 extends/]
+    B[fork-aliases.json]
+    C[app/extends/]
+    D[lib/extends/]
+  end
+  B -->|tsconfig + next alias| A
+  C -->|rewrite /teacher /home …| UI[浏览器]
+  C -->|/api/extends/*| API[HTTP]
+  A -->|import @/lib/…| D
+```
+
+详见：[二开扩展功能](#-二开扩展功能) · [`extends/DEVELOPMENT_GUIDE.md`](./extends/DEVELOPMENT_GUIDE.md)
 
 ### 贡献流程
 
