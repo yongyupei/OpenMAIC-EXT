@@ -1,0 +1,22 @@
+/**
+ * Pointer cursor for fork UI click targets (scoped via html.extends-interactive).
+ * Applied when registerExtensions() runs — see extends/bootstrap.ts.
+ */
+html.extends-interactive :is(
+    button:not(:disabled),
+    [role='button']:not([aria-disabled='true']),
+    a[href],
+    label[for],
+    select,
+    summary
+  ) {
+  cursor: pointer;
+}
+
+html.extends-interactive :is(button:disabled, [aria-disabled='true']) {
+  cursor: not-allowed;
+}
+
+html.extends-interactive :is(tr, div, li)[class*='cursor-pointer'] {
+  cursor: pointer;
+}

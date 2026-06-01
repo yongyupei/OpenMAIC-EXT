@@ -1,0 +1,4 @@
+upstream=THU-MAIC/OpenMAIC
+version=v0.2.1
+commit=unknown
+last_sync=2026-05-22

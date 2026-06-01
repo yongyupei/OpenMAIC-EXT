@@ -1,0 +1,1083 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@extends/*": [
+        "./extends/*"
+      ],
+      "@app-extends/*": [
+        "./app/extends/*"
+      ],
+      "@components-extends/*": [
+        "./components/extends/*"
+      ],
+      "@lib-extends/*": [
+        "./lib/extends/*"
+      ],
+      "@configs-extends/*": [
+        "./configs/extends/*"
+      ],
+      "@/lib/slide-templates/*": [
+        "./lib/extends/slide-templates/*"
+      ],
+      "@/components/slide-templates/*": [
+        "./components/extends/slide-templates/*"
+      ],
+      "@/lib/server/classroom-media-generation": [
+        "./lib/extends/server/classroom-media-generation"
+      ],
+      "@/lib/pbl/generate-pbl": [
+        "./lib/extends/pbl/generate-pbl"
+      ],
+      "@/components/agent/agent-bar": [
+        "./components/extends/agent/agent-bar"
+      ],
+      "@/components/audio/speech-button": [
+        "./components/extends/audio/speech-button"
+      ],
+      "@/components/canvas/canvas-area": [
+        "./components/extends/canvas/canvas-area"
+      ],
+      "@/components/chat/lecture-notes-view": [
+        "./components/extends/chat/lecture-notes-view"
+      ],
+      "@/components/course-editor/course-editor-shell": [
+        "./components/extends/course-editor/course-editor-shell"
+      ],
+      "@/components/course-editor/scene-list-editor": [
+        "./components/extends/course-editor/scene-list-editor"
+      ],
+      "@/components/course-editor/scene-redesign-dialog": [
+        "./components/extends/course-editor/scene-redesign-dialog"
+      ],
+      "@/components/course-editor/slide-template-toolbar-button": [
+        "./components/extends/course-editor/slide-template-toolbar-button"
+      ],
+      "@/components/course-editor/workflow-config-panel": [
+        "./components/extends/course-editor/workflow-config-panel"
+      ],
+      "@/components/header": [
+        "./components/extends/header"
+      ],
+      "@/components/home/fork-home-entry-link": [
+        "./components/extends/home/fork-home-entry-link"
+      ],
+      "@/components/knowledge-base/knowledge-base-assistant": [
+        "./components/extends/knowledge-base/knowledge-base-assistant"
+      ],
+      "@/components/knowledge-base/knowledge-base-design-panel": [
+        "./components/extends/knowledge-base/knowledge-base-design-panel"
+      ],
+      "@/components/knowledge-base/knowledge-base-node-inspector": [
+        "./components/extends/knowledge-base/knowledge-base-node-inspector"
+      ],
+      "@/components/knowledge-base/knowledge-drive-browser": [
+        "./components/extends/knowledge-base/knowledge-drive-browser"
+      ],
+      "@/components/slide-templates/slide-template-edit-dialog": [
+        "./components/extends/slide-templates/slide-template-edit-dialog"
+      ],
+      "@/components/slide-templates/slide-template-json-editor": [
+        "./components/extends/slide-templates/slide-template-json-editor"
+      ],
+      "@/components/slide-templates/slide-template-picker": [
+        "./components/extends/slide-templates/slide-template-picker"
+      ],
+      "@/components/slide-templates/slide-template-preview": [
+        "./components/extends/slide-templates/slide-template-preview"
+      ],
+      "@/components/ui/select": [
+        "./components/extends/ui/select"
+      ],
+      "@/components/stage/scene-renderer": [
+        "./components/extends/stage/scene-renderer"
+      ],
+      "@/components/teacher/chapter-generate-shell": [
+        "./components/extends/teacher/chapter-generate-shell"
+      ],
+      "@/components/teacher/chapter-generation-progress-card": [
+        "./components/extends/teacher/chapter-generation-progress-card"
+      ],
+      "@/components/teacher/chapter-studio-shell": [
+        "./components/extends/teacher/chapter-studio-shell"
+      ],
+      "@/components/teacher/course-project-design-shell": [
+        "./components/extends/teacher/course-project-design-shell"
+      ],
+      "@/components/teacher/course-project-streaming-banner": [
+        "./components/extends/teacher/course-project-streaming-banner"
+      ],
+      "@/components/teacher/course-studio-shell": [
+        "./components/extends/teacher/course-studio-shell"
+      ],
+      "@/components/teacher/design-workbench/chapter-classroom-status-badge": [
+        "./components/extends/teacher/design-workbench/chapter-classroom-status-badge"
+      ],
+      "@/components/teacher/design-workbench/chapter-failure-detail-dialog": [
+        "./components/extends/teacher/design-workbench/chapter-failure-detail-dialog"
+      ],
+      "@/components/teacher/design-workbench/chapter-generation-settings-field": [
+        "./components/extends/teacher/design-workbench/chapter-generation-settings-field"
+      ],
+      "@/components/teacher/design-workbench/chapter-generation-settings-drawer": [
+        "./components/extends/teacher/design-workbench/chapter-generation-settings-drawer"
+      ],
+      "@/components/teacher/design-workbench/chapter-generation-settings-pane": [
+        "./components/extends/teacher/design-workbench/chapter-generation-settings-pane"
+      ],
+      "@/components/teacher/design-workbench/chapter-knowledge-mount-field": [
+        "./components/extends/teacher/design-workbench/chapter-knowledge-mount-field"
+      ],
+      "@/components/teacher/design-workbench/chapter-list-editor": [
+        "./components/extends/teacher/design-workbench/chapter-list-editor"
+      ],
+      "@/components/teacher/design-workbench/course-generation-flow-settings-dialog": [
+        "./components/extends/teacher/design-workbench/course-generation-flow-settings-dialog"
+      ],
+      "@/components/teacher/design-workbench/course-generation-settings-block": [
+        "./components/extends/teacher/design-workbench/course-generation-settings-block"
+      ],
+      "@/components/teacher/design-workbench/course-generation-settings-drawer": [
+        "./components/extends/teacher/design-workbench/course-generation-settings-drawer"
+      ],
+      "@/components/teacher/design-workbench/course-generation-settings-pane": [
+        "./components/extends/teacher/design-workbench/course-generation-settings-pane"
+      ],
+      "@/components/teacher/design-workbench/course-model-select-field": [
+        "./components/extends/teacher/design-workbench/course-model-select-field"
+      ],
+      "@/components/teacher/design-workbench/course-knowledge-mount-block": [
+        "./components/extends/teacher/design-workbench/course-knowledge-mount-block"
+      ],
+      "@/components/teacher/design-workbench/course-overview-block": [
+        "./components/extends/teacher/design-workbench/course-overview-block"
+      ],
+      "@/components/teacher/design-workbench/design-workbench-dialog-layout": [
+        "./components/extends/teacher/design-workbench/design-workbench-dialog-layout"
+      ],
+      "@/components/teacher/design-workbench/generation-settings-fields": [
+        "./components/extends/teacher/design-workbench/generation-settings-fields"
+      ],
+      "@/components/teacher/design-workbench/generation-workflow-fields": [
+        "./components/extends/teacher/design-workbench/generation-workflow-fields"
+      ],
+      "@/components/teacher/design-workbench/prompt-markdown-field": [
+        "./components/extends/teacher/design-workbench/prompt-markdown-field"
+      ],
+      "@/components/teacher/design-workbench/prompt-override-editor-dialog": [
+        "./components/extends/teacher/design-workbench/prompt-override-editor-dialog"
+      ],
+      "@/components/teacher/design-workbench/prompt-override-list": [
+        "./components/extends/teacher/design-workbench/prompt-override-list"
+      ],
+      "@/components/teacher/html-slide-scene-preview": [
+        "./components/extends/teacher/html-slide-scene-preview"
+      ],
+      "@/lib/ai/llm": [
+        "./lib/extends/ai/llm"
+      ],
+      "@/lib/audio/asr-client-utils": [
+        "./lib/extends/audio/asr-client-utils"
+      ],
+      "@/lib/chat/agent-loop": [
+        "./lib/extends/chat/agent-loop"
+      ],
+      "@/lib/audio/speech-recognition.d": [
+        "./lib/extends/audio/speech-recognition.d"
+      ],
+      "@/lib/generation/generation-pipeline": [
+        "./lib/extends/generation/generation-pipeline"
+      ],
+      "@/lib/generation/html-extract": [
+        "./lib/extends/generation/html-extract"
+      ],
+      "@/lib/generation/html-slide-generator": [
+        "./lib/extends/generation/html-slide-generator"
+      ],
+      "@/lib/generation/html-slide-placeholder-canvas": [
+        "./lib/extends/generation/html-slide-placeholder-canvas"
+      ],
+      "@/lib/generation/outline-generator": [
+        "./lib/extends/generation/outline-generator"
+      ],
+      "@/lib/generation/pipeline-default-slide-theme": [
+        "./lib/extends/generation/pipeline-default-slide-theme"
+      ],
+      "@/lib/generation/pipeline-slide-canvas": [
+        "./lib/extends/generation/pipeline-slide-canvas"
+      ],
+      "@/lib/generation/scene-assembler": [
+        "./lib/extends/generation/scene-assembler"
+      ],
+      "@/lib/generation/scene-generator": [
+        "./lib/extends/generation/scene-generator"
+      ],
+      "@/lib/generation/slide-generation-snapshot": [
+        "./lib/extends/generation/slide-generation-snapshot"
+      ],
+      "@/lib/generation/workflow/execute-chapter-workflow": [
+        "./lib/extends/generation/workflow/execute-chapter-workflow"
+      ],
+      "@/lib/hooks/use-audio-recorder": [
+        "./lib/extends/hooks/use-audio-recorder"
+      ],
+      "@/lib/hooks/use-scene-redesign": [
+        "./lib/extends/hooks/use-scene-redesign"
+      ],
+      "@/lib/i18n/config": [
+        "./lib/extends/i18n/config"
+      ],
+      "@/lib/knowledge-base/client": [
+        "./lib/extends/knowledge-base/client"
+      ],
+      "@/lib/knowledge-base/tree-utils": [
+        "./lib/extends/knowledge-base/tree-utils"
+      ],
+      "@/lib/knowledge-base/ui-layout": [
+        "./lib/extends/knowledge-base/ui-layout"
+      ],
+      "@/lib/prompts/build-with-overrides": [
+        "./lib/extends/prompts/build-with-overrides"
+      ],
+      "@/lib/prompts/templates/agent-system/system": [
+        "./lib/extends/prompts/templates/agent-system/system"
+      ],
+      "@/lib/prompts/generation-prompt-allowlist": [
+        "./lib/extends/prompts/generation-prompt-allowlist"
+      ],
+      "@/lib/prompts/index": [
+        "./lib/extends/prompts/index"
+      ],
+      "@/lib/prompts": [
+        "./lib/extends/prompts/index"
+      ],
+      "@/lib/prompts/loader": [
+        "./lib/extends/prompts/loader"
+      ],
+      "@/lib/prompts/snippets/generation-mode-hybrid": [
+        "./lib/extends/prompts/snippets/generation-mode-hybrid"
+      ],
+      "@/lib/prompts/snippets/generation-mode-material-driven": [
+        "./lib/extends/prompts/snippets/generation-mode-material-driven"
+      ],
+      "@/lib/prompts/snippets/generation-mode-requirement-driven": [
+        "./lib/extends/prompts/snippets/generation-mode-requirement-driven"
+      ],
+      "@/lib/prompts/snippets/slide-layout-constraints": [
+        "./lib/extends/prompts/snippets/slide-layout-constraints"
+      ],
+      "@/lib/prompts/templates/html-slide-actions/system": [
+        "./lib/extends/prompts/templates/html-slide-actions/system"
+      ],
+      "@/lib/prompts/templates/html-slide-actions/user": [
+        "./lib/extends/prompts/templates/html-slide-actions/user"
+      ],
+      "@/lib/prompts/templates/html-slide-content/system": [
+        "./lib/extends/prompts/templates/html-slide-content/system"
+      ],
+      "@/lib/prompts/templates/html-slide-content/user": [
+        "./lib/extends/prompts/templates/html-slide-content/user"
+      ],
+      "@/lib/prompts/templates/requirements-to-outlines/system": [
+        "./lib/extends/prompts/templates/requirements-to-outlines/system"
+      ],
+      "@/lib/prompts/templates/slide-content/system": [
+        "./lib/extends/prompts/templates/slide-content/system"
+      ],
+      "@/lib/prompts/templates/slide-content/user": [
+        "./lib/extends/prompts/templates/slide-content/user"
+      ],
+      "@/lib/prompts/types": [
+        "./lib/extends/prompts/types"
+      ],
+      "@/lib/server/classroom-generation": [
+        "./lib/extends/server/classroom-generation"
+      ],
+      "@/lib/server/classroom-storage": [
+        "./lib/extends/server/classroom-storage"
+      ],
+      "@/lib/slide-templates/apply-template-to-scenes": [
+        "./lib/extends/slide-templates/apply-template-to-scenes"
+      ],
+      "@/lib/slide-templates/build-template-preview-slide": [
+        "./lib/extends/slide-templates/build-template-preview-slide"
+      ],
+      "@/lib/slide-templates/builtins": [
+        "./lib/extends/slide-templates/builtins"
+      ],
+      "@/lib/slide-templates/business-builtin-themes": [
+        "./lib/extends/slide-templates/business-builtin-themes"
+      ],
+      "@/lib/slide-templates/client": [
+        "./lib/extends/slide-templates/client"
+      ],
+      "@/lib/slide-templates/constants": [
+        "./lib/extends/slide-templates/constants"
+      ],
+      "@/lib/slide-templates/default-office-theme": [
+        "./lib/extends/slide-templates/default-office-theme"
+      ],
+      "@/lib/slide-templates/force-restore-template": [
+        "./lib/extends/slide-templates/force-restore-template"
+      ],
+      "@/lib/slide-templates/layout-utils": [
+        "./lib/extends/slide-templates/layout-utils"
+      ],
+      "@/lib/slide-templates/palette-utils": [
+        "./lib/extends/slide-templates/palette-utils"
+      ],
+      "@/lib/slide-templates/project-storage": [
+        "./lib/extends/slide-templates/project-storage"
+      ],
+      "@/lib/slide-templates/resolve": [
+        "./lib/extends/slide-templates/resolve"
+      ],
+      "@/lib/slide-templates/schema": [
+        "./lib/extends/slide-templates/schema"
+      ],
+      "@/lib/slide-templates/shared-layouts": [
+        "./lib/extends/slide-templates/shared-layouts"
+      ],
+      "@/lib/slide-templates/storage": [
+        "./lib/extends/slide-templates/storage"
+      ],
+      "@/lib/slide-templates/theme-color-remap": [
+        "./lib/extends/slide-templates/theme-color-remap"
+      ],
+      "@/lib/slide-templates/theme-force-styles": [
+        "./lib/extends/slide-templates/theme-force-styles"
+      ],
+      "@/lib/slide-templates/theme-graphics": [
+        "./lib/extends/slide-templates/theme-graphics"
+      ],
+      "@/lib/slide-templates/theme-typography": [
+        "./lib/extends/slide-templates/theme-typography"
+      ],
+      "@/lib/slide-templates/types": [
+        "./lib/extends/slide-templates/types"
+      ],
+      "@/lib/store/stage": [
+        "./lib/extends/store/stage"
+      ],
+      "@/lib/teacher/chapter-classroom-api": [
+        "./lib/extends/teacher/chapter-classroom-api"
+      ],
+      "@/lib/teacher/chapter-classroom-ui": [
+        "./lib/extends/teacher/chapter-classroom-ui"
+      ],
+      "@/lib/teacher/chapter-classroom-status-sync": [
+        "./lib/extends/teacher/chapter-classroom-status-sync"
+      ],
+      "@/lib/teacher/chapter-diff": [
+        "./lib/extends/teacher/chapter-diff"
+      ],
+      "@/lib/teacher/chapter-generate-precheck": [
+        "./lib/extends/teacher/chapter-generate-precheck"
+      ],
+      "@/lib/teacher/chapter-generation-enrichment": [
+        "./lib/extends/teacher/chapter-generation-enrichment"
+      ],
+      "@/lib/teacher/chapter-generation-flow": [
+        "./lib/extends/teacher/chapter-generation-flow"
+      ],
+      "@/lib/teacher/chapter-generation-input": [
+        "./lib/extends/teacher/chapter-generation-input"
+      ],
+      "@/lib/teacher/chapter-generation-resume": [
+        "./lib/extends/teacher/chapter-generation-resume"
+      ],
+      "@/lib/teacher/chapter-outline-edits": [
+        "./lib/extends/teacher/chapter-outline-edits"
+      ],
+      "@/lib/teacher/chapter-knowledge-mount": [
+        "./lib/extends/teacher/chapter-knowledge-mount"
+      ],
+      "@/lib/teacher/chapter-reference-material": [
+        "./lib/extends/teacher/chapter-reference-material"
+      ],
+      "@/lib/teacher/course-project-storage": [
+        "./lib/extends/teacher/course-project-storage"
+      ],
+      "@/lib/teacher/course-project": [
+        "./lib/extends/teacher/course-project"
+      ],
+      "@/lib/teacher/course-types": [
+        "./lib/extends/teacher/course-types"
+      ],
+      "@/lib/teacher/design-shell-reducer": [
+        "./lib/extends/teacher/design-shell-reducer"
+      ],
+      "@/lib/teacher/design-workbench-layout": [
+        "./lib/extends/teacher/design-workbench-layout"
+      ],
+      "@/lib/teacher/generation-profile": [
+        "./lib/extends/teacher/generation-profile"
+      ],
+      "@/lib/teacher/generation-prompt-catalog": [
+        "./lib/extends/teacher/generation-prompt-catalog"
+      ],
+      "@/lib/teacher/html-slide-autoplay": [
+        "./lib/extends/teacher/html-slide-autoplay"
+      ],
+      "@/lib/teacher/hydrate-classroom-to-stage": [
+        "./lib/extends/teacher/hydrate-classroom-to-stage"
+      ],
+      "@/lib/teacher/migrate-generation-profile": [
+        "./lib/extends/teacher/migrate-generation-profile"
+      ],
+      "@/lib/teacher/patch-slide-template": [
+        "./lib/extends/teacher/patch-slide-template"
+      ],
+      "@/lib/teacher/resolve-generation-profile": [
+        "./lib/extends/teacher/resolve-generation-profile"
+      ],
+      "@/lib/teacher/slide-output-format": [
+        "./lib/extends/teacher/slide-output-format"
+      ],
+      "@/lib/teacher/teacher-projects-client": [
+        "./lib/extends/teacher/teacher-projects-client"
+      ],
+      "@/lib/teacher/teacher-refine-client": [
+        "./lib/extends/teacher/teacher-refine-client"
+      ],
+      "@/lib/teacher/use-chapter-classroom-status-polling": [
+        "./lib/extends/teacher/use-chapter-classroom-status-polling"
+      ],
+      "@/lib/types/chat": [
+        "./lib/extends/types/chat"
+      ],
+      "@/lib/types/generation": [
+        "./lib/extends/types/generation"
+      ],
+      "@/lib/types/slides": [
+        "./lib/extends/types/slides"
+      ],
+      "@/lib/types/stage": [
+        "./lib/extends/types/stage"
+      ],
+      "@/tests/audio/asr-client-utils.test": [
+        "./tests/extends/audio/asr-client-utils.test"
+      ],
+      "@/tests/generation/html-slide-placeholder-canvas.test": [
+        "./tests/extends/generation/html-slide-placeholder-canvas.test"
+      ],
+      "@/tests/knowledge-base/tree-utils.test": [
+        "./tests/extends/knowledge-base/tree-utils.test"
+      ],
+      "@/tests/prompts/build-with-overrides.test": [
+        "./tests/extends/prompts/build-with-overrides.test"
+      ],
+      "@/tests/prompts/generation-mode-snippets.test": [
+        "./tests/extends/prompts/generation-mode-snippets.test"
+      ],
+      "@/tests/slide-templates/apply-template-to-scenes.test": [
+        "./tests/extends/slide-templates/apply-template-to-scenes.test"
+      ],
+      "@/tests/slide-templates/build-template-preview-slide.test": [
+        "./tests/extends/slide-templates/build-template-preview-slide.test"
+      ],
+      "@/tests/slide-templates/business-builtin-themes.test": [
+        "./tests/extends/slide-templates/business-builtin-themes.test"
+      ],
+      "@/tests/slide-templates/force-apply-template.test": [
+        "./tests/extends/slide-templates/force-apply-template.test"
+      ],
+      "@/tests/slide-templates/generation-snapshot.test": [
+        "./tests/extends/slide-templates/generation-snapshot.test"
+      ],
+      "@/tests/slide-templates/layout-utils.test": [
+        "./tests/extends/slide-templates/layout-utils.test"
+      ],
+      "@/tests/slide-templates/palette-utils.test": [
+        "./tests/extends/slide-templates/palette-utils.test"
+      ],
+      "@/tests/slide-templates/pipeline-reset.test": [
+        "./tests/extends/slide-templates/pipeline-reset.test"
+      ],
+      "@/tests/slide-templates/resolve.test": [
+        "./tests/extends/slide-templates/resolve.test"
+      ],
+      "@/tests/slide-templates/schema.test": [
+        "./tests/extends/slide-templates/schema.test"
+      ],
+      "@/tests/slide-templates/theme-graphics.test": [
+        "./tests/extends/slide-templates/theme-graphics.test"
+      ],
+      "@/tests/slide-templates/theme-typography.test": [
+        "./tests/extends/slide-templates/theme-typography.test"
+      ],
+      "@/tests/stage/scene-renderer-html-slide.test": [
+        "./tests/extends/stage/scene-renderer-html-slide.test"
+      ],
+      "@/tests/teacher/chapter-classroom-status-sync.test": [
+        "./tests/extends/teacher/chapter-classroom-status-sync.test"
+      ],
+      "@/tests/teacher/chapter-diff.test": [
+        "./tests/extends/teacher/chapter-diff.test"
+      ],
+      "@/tests/teacher/chapter-generate-precheck.test": [
+        "./tests/extends/teacher/chapter-generate-precheck.test"
+      ],
+      "@/tests/teacher/chapter-generation-flow.test": [
+        "./tests/extends/teacher/chapter-generation-flow.test"
+      ],
+      "@/tests/teacher/chapter-outline-edits.test": [
+        "./tests/extends/teacher/chapter-outline-edits.test"
+      ],
+      "@/tests/teacher/chapter-generation-progress-card.test": [
+        "./tests/extends/teacher/chapter-generation-progress-card.test"
+      ],
+      "@/tests/teacher/chapter-generation-input-slide-template.test": [
+        "./tests/extends/teacher/chapter-generation-input-slide-template.test"
+      ],
+      "@/tests/teacher/chapter-knowledge-mount.test": [
+        "./tests/extends/teacher/chapter-knowledge-mount.test"
+      ],
+      "@/tests/teacher/chapter-reference-material.test": [
+        "./tests/extends/teacher/chapter-reference-material.test"
+      ],
+      "@/tests/teacher/generate-chapter-api.test": [
+        "./tests/extends/teacher/generate-chapter-api.test"
+      ],
+      "@/tests/teacher/generation-profile-slide-format.test": [
+        "./tests/extends/teacher/generation-profile-slide-format.test"
+      ],
+      "@/tests/teacher/html-slide-autoplay.test": [
+        "./tests/extends/teacher/html-slide-autoplay.test"
+      ],
+      "@/tests/teacher/hydrate-classroom-to-stage.test": [
+        "./tests/extends/teacher/hydrate-classroom-to-stage.test"
+      ],
+      "@/tests/teacher/outline-api.test": [
+        "./tests/extends/teacher/outline-api.test"
+      ],
+      "@/tests/teacher/resolve-generation-profile.test": [
+        "./tests/extends/teacher/resolve-generation-profile.test"
+      ],
+      "@/tests/teacher/slide-output-format.test": [
+        "./tests/extends/teacher/slide-output-format.test"
+      ],
+      "@/tests/teacher/studio-routes.test": [
+        "./tests/extends/teacher/studio-routes.test"
+      ],
+      "@/tests/server/classroom-storage-update.test": [
+        "./tests/extends/server/classroom-storage-update.test"
+      ],
+      "@/components/chat/chat-area": [
+        "./components/extends/chat/chat-area"
+      ],
+      "@/components/chat/session-list": [
+        "./components/extends/chat/session-list"
+      ],
+      "@/components/chat/use-chat-sessions": [
+        "./components/extends/chat/use-chat-sessions"
+      ],
+      "@/components/settings/agent-settings": [
+        "./components/extends/settings/agent-settings"
+      ],
+      "@/components/settings/audio-settings": [
+        "./components/extends/settings/audio-settings"
+      ],
+      "@/components/settings/index": [
+        "./components/extends/settings/index"
+      ],
+      "@/components/settings": [
+        "./components/extends/settings/index"
+      ],
+      "@/components/slide-renderer/components/element/ChartElement/chartOption": [
+        "./components/extends/slide-renderer/components/element/ChartElement/chartOption"
+      ],
+      "@/lib/audio/asr-providers": [
+        "./lib/extends/audio/asr-providers"
+      ],
+      "@/lib/audio/constants": [
+        "./lib/extends/audio/constants"
+      ],
+      "@/lib/audio/types": [
+        "./lib/extends/audio/types"
+      ],
+      "@/lib/orchestration/director-graph": [
+        "./lib/extends/orchestration/director-graph"
+      ],
+      "@/lib/orchestration/summarizers/conversation-summary": [
+        "./lib/extends/orchestration/summarizers/conversation-summary"
+      ],
+      "@/lib/prompts/templates/director/system": [
+        "./lib/extends/prompts/templates/director/system"
+      ],
+      "@/lib/server/provider-config": [
+        "./lib/extends/server/provider-config"
+      ],
+      "@/lib/store/index": [
+        "./lib/extends/store/index"
+      ],
+      "@/lib/store": [
+        "./lib/extends/store/index"
+      ],
+      "@/lib/store/settings": [
+        "./lib/extends/store/settings"
+      ],
+      "@/components/course-editor/course-chapter-nav-bar": [
+        "./components/extends/course-editor/course-chapter-nav-bar"
+      ],
+      "@/components/course-editor/course-editor/course-editor-shell": [
+        "./components/extends/course-editor/course-editor/course-editor-shell"
+      ],
+      "@/components/course-editor/course-editor/quiz-editor": [
+        "./components/extends/course-editor/course-editor/quiz-editor"
+      ],
+      "@/components/course-editor/course-editor/scene-list-editor": [
+        "./components/extends/course-editor/course-editor/scene-list-editor"
+      ],
+      "@/components/course-editor/course-editor/workflow-config-panel": [
+        "./components/extends/course-editor/course-editor/workflow-config-panel"
+      ],
+      "@/components/course-editor/quiz-editor": [
+        "./components/extends/course-editor/quiz-editor"
+      ],
+      "@/components/course-editor/video-export-dialog": [
+        "./components/extends/course-editor/video-export-dialog"
+      ],
+      "@/components/generation/llm-composer-action-row": [
+        "./components/extends/generation/llm-composer-action-row"
+      ],
+      "@/components/home/classroom-card": [
+        "./components/extends/home/classroom-card"
+      ],
+      "@/components/home/home-recent-tabs": [
+        "./components/extends/home/home-recent-tabs"
+      ],
+      "@/components/home/teacher-project-card": [
+        "./components/extends/home/teacher-project-card"
+      ],
+      "@/components/knowledge-base/knowledge-picker": [
+        "./components/extends/knowledge-base/knowledge-picker"
+      ],
+      "@/components/knowledge-base/knowledge-tree": [
+        "./components/extends/knowledge-base/knowledge-tree"
+      ],
+      "@/components/knowledge-base/proposal-diff-panel": [
+        "./components/extends/knowledge-base/proposal-diff-panel"
+      ],
+      "@/components/settings/model-selector": [
+        "./components/extends/settings/model-selector"
+      ],
+      "@/components/teacher/course-project-chat": [
+        "./components/extends/teacher/course-project-chat"
+      ],
+      "@/components/teacher/course-publish-button": [
+        "./components/extends/teacher/course-publish-button"
+      ],
+      "@/components/teacher/design-workbench/chapter-reference-field": [
+        "./components/extends/teacher/design-workbench/chapter-reference-field"
+      ],
+      "@/components/teacher/design-workbench/chapter-studio-button": [
+        "./components/extends/teacher/design-workbench/chapter-studio-button"
+      ],
+      "@/components/teacher/design-workbench/generate-lessons-button": [
+        "./components/extends/teacher/design-workbench/generate-lessons-button"
+      ],
+      "@/components/teacher/design-workbench/generation-progress-dialog": [
+        "./components/extends/teacher/design-workbench/generation-progress-dialog"
+      ],
+      "@/components/teacher/design-workbench/persistence-status-indicator": [
+        "./components/extends/teacher/design-workbench/persistence-status-indicator"
+      ],
+      "@/components/teacher/generation-progress-panel": [
+        "./components/extends/teacher/generation-progress-panel"
+      ],
+      "@/components/teacher/identity-choice": [
+        "./components/extends/teacher/identity-choice"
+      ],
+      "@/components/teacher/teacher-assist-panel": [
+        "./components/extends/teacher/teacher-assist-panel"
+      ],
+      "@/components/teacher/teacher-preview-gate": [
+        "./components/extends/teacher/teacher-preview-gate"
+      ],
+      "@/components/teacher/teacher-preview-shell": [
+        "./components/extends/teacher/teacher-preview-shell"
+      ],
+      "@/components/teacher/teacher-project-generate-shell": [
+        "./components/extends/teacher/teacher-project-generate-shell"
+      ],
+      "@/components/teacher/teacher-project-list": [
+        "./components/extends/teacher/teacher-project-list"
+      ],
+      "@/components/teacher/teacher-recent-projects": [
+        "./components/extends/teacher/teacher-recent-projects"
+      ],
+      "@/components/teacher/teacher-run-status-panel": [
+        "./components/extends/teacher/teacher-run-status-panel"
+      ],
+      "@/components/video-export/export-video-render-client": [
+        "./components/extends/video-export/export-video-render-client"
+      ],
+      "@/components/video-export/slide-export-viewport": [
+        "./components/extends/video-export/slide-export-viewport"
+      ],
+      "@/components/video-export/summary-card": [
+        "./components/extends/video-export/summary-card"
+      ],
+      "@/lib/course-editor/course-editor/routes": [
+        "./lib/extends/course-editor/course-editor/routes"
+      ],
+      "@/lib/course-editor/course-editor/scene-operations": [
+        "./lib/extends/course-editor/course-editor/scene-operations"
+      ],
+      "@/lib/course-editor/routes": [
+        "./lib/extends/course-editor/routes"
+      ],
+      "@/lib/course-editor/scene-operations": [
+        "./lib/extends/course-editor/scene-operations"
+      ],
+      "@/lib/generation/workflow/index": [
+        "./lib/extends/generation/workflow/index"
+      ],
+      "@/lib/generation/workflow": [
+        "./lib/extends/generation/workflow/index"
+      ],
+      "@/lib/generation/workflow/workflow-presets": [
+        "./lib/extends/generation/workflow/workflow-presets"
+      ],
+      "@/lib/generation/workflow/workflow-runner": [
+        "./lib/extends/generation/workflow/workflow-runner"
+      ],
+      "@/lib/generation/workflow/workflow-schema": [
+        "./lib/extends/generation/workflow/workflow-schema"
+      ],
+      "@/lib/hooks/use-navigate-back": [
+        "./lib/extends/hooks/use-navigate-back"
+      ],
+      "@/lib/knowledge-base/ai-plan": [
+        "./lib/extends/knowledge-base/ai-plan"
+      ],
+      "@/lib/knowledge-base/constants": [
+        "./lib/extends/knowledge-base/constants"
+      ],
+      "@/lib/knowledge-base/extract-file": [
+        "./lib/extends/knowledge-base/extract-file"
+      ],
+      "@/lib/knowledge-base/file-types": [
+        "./lib/extends/knowledge-base/file-types"
+      ],
+      "@/lib/knowledge-base/merge-reference": [
+        "./lib/extends/knowledge-base/merge-reference"
+      ],
+      "@/lib/knowledge-base/proposal-apply": [
+        "./lib/extends/knowledge-base/proposal-apply"
+      ],
+      "@/lib/knowledge-base/resolve-mount-context": [
+        "./lib/extends/knowledge-base/resolve-mount-context"
+      ],
+      "@/lib/knowledge-base/storage": [
+        "./lib/extends/knowledge-base/storage"
+      ],
+      "@/lib/knowledge-base/types": [
+        "./lib/extends/knowledge-base/types"
+      ],
+      "@/lib/lecture-timeline": [
+        "./lib/extends/lecture-timeline"
+      ],
+      "@/lib/prompts/templates/knowledge-base-plan/system": [
+        "./lib/extends/prompts/templates/knowledge-base-plan/system"
+      ],
+      "@/lib/prompts/templates/knowledge-base-plan/user": [
+        "./lib/extends/prompts/templates/knowledge-base-plan/user"
+      ],
+      "@/lib/server/extract-html-text": [
+        "./lib/extends/server/extract-html-text"
+      ],
+      "@/lib/server/video-export/ensure-classroom-narration": [
+        "./lib/extends/server/video-export/ensure-classroom-narration"
+      ],
+      "@/lib/server/video-export/extract-assets": [
+        "./lib/extends/server/video-export/extract-assets"
+      ],
+      "@/lib/server/video-export/ffmpeg": [
+        "./lib/extends/server/video-export/ffmpeg"
+      ],
+      "@/lib/server/video-export/playwright-render": [
+        "./lib/extends/server/video-export/playwright-render"
+      ],
+      "@/lib/server/video-export/render-token": [
+        "./lib/extends/server/video-export/render-token"
+      ],
+      "@/lib/server/video-export/resolve-audio": [
+        "./lib/extends/server/video-export/resolve-audio"
+      ],
+      "@/lib/server/video-export/resolve-classroom-audio": [
+        "./lib/extends/server/video-export/resolve-classroom-audio"
+      ],
+      "@/lib/server/video-export/generate-export-narration": [
+        "./lib/extends/server/video-export/generate-export-narration"
+      ],
+      "@/lib/server/video-export/server-export-tts": [
+        "./lib/extends/server/video-export/server-export-tts"
+      ],
+      "@/lib/server/video-export/timeline": [
+        "./lib/extends/server/video-export/timeline"
+      ],
+      "@/lib/server/video-export-job-store": [
+        "./lib/extends/server/video-export-job-store"
+      ],
+      "@/lib/server/video-export-runner": [
+        "./lib/extends/server/video-export-runner"
+      ],
+      "@/lib/teacher/chapter-reference-client": [
+        "./lib/extends/teacher/chapter-reference-client"
+      ],
+      "@/lib/teacher/chapter-reference-extract": [
+        "./lib/extends/teacher/chapter-reference-extract"
+      ],
+      "@/lib/teacher/chapter-reference-file-types": [
+        "./lib/extends/teacher/chapter-reference-file-types"
+      ],
+      "@/lib/teacher/chapter-reference": [
+        "./lib/extends/teacher/chapter-reference"
+      ],
+      "@/lib/teacher/chapter-scene-order": [
+        "./lib/extends/teacher/chapter-scene-order"
+      ],
+      "@/lib/teacher/client-generation-config": [
+        "./lib/extends/teacher/client-generation-config"
+      ],
+      "@/lib/teacher/collect-export-audio": [
+        "./lib/extends/teacher/collect-export-audio"
+      ],
+      "@/lib/teacher/course-publish": [
+        "./lib/extends/teacher/course-publish"
+      ],
+      "@/lib/teacher/course-run-status": [
+        "./lib/extends/teacher/course-run-status"
+      ],
+      "@/lib/teacher/design-agent-prompt": [
+        "./lib/extends/teacher/design-agent-prompt"
+      ],
+      "@/lib/teacher/design-chat-types": [
+        "./lib/extends/teacher/design-chat-types"
+      ],
+      "@/lib/teacher/design-chat-validation": [
+        "./lib/extends/teacher/design-chat-validation"
+      ],
+      "@/lib/teacher/generation-scheduler": [
+        "./lib/extends/teacher/generation-scheduler"
+      ],
+      "@/lib/teacher/get-editable-classroom-id": [
+        "./lib/extends/teacher/get-editable-classroom-id"
+      ],
+      "@/lib/teacher/homepage-handoff": [
+        "./lib/extends/teacher/homepage-handoff"
+      ],
+      "@/lib/teacher/prepare-video-export-audio": [
+        "./lib/extends/teacher/prepare-video-export-audio"
+      ],
+      "@/lib/teacher/preview-binding": [
+        "./lib/extends/teacher/preview-binding"
+      ],
+      "@/lib/teacher/preview-helpers": [
+        "./lib/extends/teacher/preview-helpers"
+      ],
+      "@/lib/teacher/preview-resume-helpers": [
+        "./lib/extends/teacher/preview-resume-helpers"
+      ],
+      "@/lib/teacher/project-list-summary": [
+        "./lib/extends/teacher/project-list-summary"
+      ],
+      "@/lib/teacher/resolve-resume-path": [
+        "./lib/extends/teacher/resolve-resume-path"
+      ],
+      "@/lib/teacher/routes": [
+        "./lib/extends/teacher/routes"
+      ],
+      "@/lib/teacher/video-export-client": [
+        "./lib/extends/teacher/video-export-client"
+      ],
+      "@/lib/teacher/video-export-tts-config": [
+        "./lib/extends/teacher/video-export-tts-config"
+      ],
+      "@/lib/video-export/constants": [
+        "./lib/extends/video-export/constants"
+      ],
+      "@/tests/course-editor/course-editor/routes.test": [
+        "./tests/extends/course-editor/course-editor/routes.test"
+      ],
+      "@/tests/course-editor/course-editor/scene-operations.test": [
+        "./tests/extends/course-editor/course-editor/scene-operations.test"
+      ],
+      "@/tests/course-editor/routes.test": [
+        "./tests/extends/course-editor/routes.test"
+      ],
+      "@/tests/course-editor/scene-operations.test": [
+        "./tests/extends/course-editor/scene-operations.test"
+      ],
+      "@/tests/generation/scene-content-fallback.test": [
+        "./tests/extends/generation/scene-content-fallback.test"
+      ],
+      "@/tests/generation/workflow-config.test": [
+        "./tests/extends/generation/workflow-config.test"
+      ],
+      "@/tests/knowledge-base/fallback-import.test": [
+        "./tests/extends/knowledge-base/fallback-import.test"
+      ],
+      "@/tests/knowledge-base/file-types.test": [
+        "./tests/extends/knowledge-base/file-types.test"
+      ],
+      "@/tests/knowledge-base/merge-reference.test": [
+        "./tests/extends/knowledge-base/merge-reference.test"
+      ],
+      "@/tests/knowledge-base/proposal-apply.test": [
+        "./tests/extends/knowledge-base/proposal-apply.test"
+      ],
+      "@/tests/knowledge-base/resolve-mount-context.test": [
+        "./tests/extends/knowledge-base/resolve-mount-context.test"
+      ],
+      "@/tests/lecture-timeline.test": [
+        "./tests/extends/lecture-timeline.test"
+      ],
+      "@/tests/server/video-export-ffmpeg.test": [
+        "./tests/extends/server/video-export-ffmpeg.test"
+      ],
+      "@/tests/server/video-export-job-store.test": [
+        "./tests/extends/server/video-export-job-store.test"
+      ],
+      "@/tests/server/video-export-runner.test": [
+        "./tests/extends/server/video-export-runner.test"
+      ],
+      "@/tests/server/video-export-timeline.test": [
+        "./tests/extends/server/video-export-timeline.test"
+      ],
+      "@/tests/teacher/assist-api.test": [
+        "./tests/extends/teacher/assist-api.test"
+      ],
+      "@/tests/teacher/chapter-classroom-api.test": [
+        "./tests/extends/teacher/chapter-classroom-api.test"
+      ],
+      "@/tests/teacher/chapter-classroom-types.test": [
+        "./tests/extends/teacher/chapter-classroom-types.test"
+      ],
+      "@/tests/teacher/chapter-classroom-update.test": [
+        "./tests/extends/teacher/chapter-classroom-update.test"
+      ],
+      "@/tests/teacher/chapter-generation-input.test": [
+        "./tests/extends/teacher/chapter-generation-input.test"
+      ],
+      "@/tests/teacher/chapter-generation-resume.test": [
+        "./tests/extends/teacher/chapter-generation-resume.test"
+      ],
+      "@/tests/teacher/chapter-reference-file-types.test": [
+        "./tests/extends/teacher/chapter-reference-file-types.test"
+      ],
+      "@/tests/teacher/chapter-scene-order.test": [
+        "./tests/extends/teacher/chapter-scene-order.test"
+      ],
+      "@/tests/teacher/client-generation-config.test": [
+        "./tests/extends/teacher/client-generation-config.test"
+      ],
+      "@/tests/teacher/course-project-storage.test": [
+        "./tests/extends/teacher/course-project-storage.test"
+      ],
+      "@/tests/teacher/course-project.test": [
+        "./tests/extends/teacher/course-project.test"
+      ],
+      "@/tests/teacher/course-publish.test": [
+        "./tests/extends/teacher/course-publish.test"
+      ],
+      "@/tests/teacher/design-shell-reducer.test": [
+        "./tests/extends/teacher/design-shell-reducer.test"
+      ],
+      "@/tests/teacher/generation-scheduler.test": [
+        "./tests/extends/teacher/generation-scheduler.test"
+      ],
+      "@/tests/teacher/migrations.test": [
+        "./tests/extends/teacher/migrations.test"
+      ],
+      "@/tests/teacher/patch-api.test": [
+        "./tests/extends/teacher/patch-api.test"
+      ],
+      "@/tests/teacher/preview-api.test": [
+        "./tests/extends/teacher/preview-api.test"
+      ],
+      "@/tests/teacher/preview-binding.test": [
+        "./tests/extends/teacher/preview-binding.test"
+      ],
+      "@/tests/teacher/preview-helpers.test": [
+        "./tests/extends/teacher/preview-helpers.test"
+      ],
+      "@/tests/teacher/preview-resume-helpers.test": [
+        "./tests/extends/teacher/preview-resume-helpers.test"
+      ],
+      "@/tests/teacher/project-api.test": [
+        "./tests/extends/teacher/project-api.test"
+      ],
+      "@/tests/teacher/project-list-summary.test": [
+        "./tests/extends/teacher/project-list-summary.test"
+      ],
+      "@/tests/teacher/publish-api.test": [
+        "./tests/extends/teacher/publish-api.test"
+      ],
+      "@/tests/teacher/publish-classroom-api.test": [
+        "./tests/extends/teacher/publish-classroom-api.test"
+      ],
+      "@/tests/teacher/resolve-resume-path.test": [
+        "./tests/extends/teacher/resolve-resume-path.test"
+      ],
+      "@/tests/teacher/routes.test": [
+        "./tests/extends/teacher/routes.test"
+      ],
+      "@/tests/teacher/video-export-client.test": [
+        "./tests/extends/teacher/video-export-client.test"
+      ],
+      "@/tests/teacher/video-export-tts-config.test": [
+        "./tests/extends/teacher/video-export-tts-config.test"
+      ],
+      "@/e2e/tests/teacher-course-flow.spec": [
+        "./e2e/extends/tests/teacher-course-flow.spec"
+      ],
+      "@/lib/utils/stage-storage": [
+        "./lib/extends/utils/stage-storage"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "packages/*/src",
+    "openclaw",
+    "e2e",
+    "lib/utils/stage-storage.ts",
+    "vitest.config.ts"
+  ]
+}
